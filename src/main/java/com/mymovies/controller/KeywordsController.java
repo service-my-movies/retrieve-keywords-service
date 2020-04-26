@@ -30,7 +30,7 @@ public class KeywordsController implements IKeywordsController {
 		try {
 			keywords = keywordsService.getAPI_Keywords(movie_id);
 		} catch (Exception e) {
-			LOGGER.error("Unexpected Error: getAPI_Keywords: " + e);
+			LOGGER.error("Unexpected Error From Controller: getAPI_Keywords: " + e);
 		}
 
 		return keywords;
