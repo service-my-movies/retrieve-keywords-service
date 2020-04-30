@@ -31,9 +31,13 @@ public class KeywordsService implements IKeywordsService {
 	public KeywordsDTO getAPI_Keywords(String movie_id) {
 
 		KeywordsDTO listOfKeywords = null;
+		
+		String url = BASE_URL+movie_id+"/keywords"+API_KEY+Language;
+		
+		LOGGER.info("@Get getAPI_Keywords Service URL : " + url);
 
 		try {
-			listOfKeywords = restTemplate.getForObject(BASE_URL+movie_id+"/keywords"+API_KEY+Language, KeywordsDTO.class);
+			listOfKeywords = restTemplate.getForObject(url, KeywordsDTO.class);
 		} catch (Exception e) {
 			LOGGER.error("Unexpected Error From Service: getAPI_Keywords: " + e);
 		}
